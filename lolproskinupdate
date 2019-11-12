@@ -2,7 +2,6 @@ def gsc():
     from urllib.request import urlopen as req
     from bs4 import BeautifulSoup as soub
     import time, os
-    os.mkdir("files")
     path = os.getcwd()
     finalpath = (path + "/files/")
     url = "http://leagueskin.net/p/download-mod-skin-lol-pro-2016-chn"
