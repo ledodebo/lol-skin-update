@@ -1,0 +1,40 @@
+def gsc():
+    from urllib.request import urlopen as req
+    from bs4 import BeautifulSoup as soub
+    import time, os
+    os.mkdir("files")
+    path = os.getcwd()
+    finalpath = (path + "/files/")
+    url = "http://leagueskin.net/p/download-mod-skin-lol-pro-2016-chn"
+    clint = req(url)
+    html_soucre = (clint.read())
+    clint.close()
+    page = (soub(html_soucre, "html.parser"))
+    hi = page.findAll("div", {"class": "col-lg-12"})
+    z = (hi[4])
+    writeinfo = open(finalpath + "sourc_code.txt", "w")
+    writeinfo.write(str(z))
+def gr():
+    import os
+    path = os.getcwd()
+    finalpath = (path + "/files/")
+    a = open(finalpath + "sourc_code.txt", "r")
+    z = a.read()
+    i = z.split()[145].strip(";")
+    linkfile = open(finalpath + "link.txt", "w")
+    linkfile.write(str(i))
+def finalworks():
+    from urllib import request
+    import urllib
+    import zipfile, os, time
+    path = os.getcwd()
+    finalpath = (path + "/files/")
+    link = open(finalpath + "link.txt", "r")
+    link1 = link.read().rsplit("" "http://" "")
+    updatelink = ("http://" + link1[1])
+    urllib.request.urlretrieve(updatelink, "blabla.zip")
+    with zipfile.ZipFile("blabla.zip", "r") as z:
+        z.extractall()
+gsc()
+gr()
+finalworks()
